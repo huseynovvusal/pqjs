@@ -21,7 +21,7 @@ export default class PriorityQueue<T> {
    * Creates a priority queue.
    *
    * @param {T[]} [values=[]] - Initial values to populate the priority queue.
-   * @param {Comparator<T>} [compare=(a, b) => (a > b ? 1 : a < b ? -1 : 0)] - Comparator function to determine the order of elements.
+   * @param {(a: T, b: T) => number} [compare=(a, b) => (a > b ? 1 : a < b ? -1 : 0)] - Comparator function to determine the order of elements.
    */
   constructor(values: T[] = [], compare: Comparator<T> = (a, b) => (a > b ? 1 : a < b ? -1 : 0)) {
     this.isGreater = (a, b) => compare(a, b) > 0
