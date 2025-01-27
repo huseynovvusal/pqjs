@@ -1,24 +1,13 @@
 {
   "compilerOptions": {
-    "outDir": "./dist",
-    "rootDir": "./src",
-    "target": "ES2020",
-    "module": "NodeNext", // Use ES Modules
-    "moduleResolution": "node16", // Ensures correct file extension in output
-    "declaration": true, // Generate .d.ts files
-    "declarationDir": "./dist",
-    "strict": true,
+    "target": "es2016",
+    "module": "commonjs",
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "skipLibCheck": true,
+    "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "resolveJsonModule": true,
-    "lib": ["ES2020"],
-    "sourceMap": true,
-    "preserveSymlinks": true, // Preserve symbolic links in import paths
-    "importsNotUsedAsValues": "remove", // Avoid type-only imports in output
-    "strictNullChecks": true
+    "skipLibCheck": true,
+    "noUncheckedIndexedAccess": true,
+    "noEmit": true
   },
-  "include": ["src/**/*.ts"],
-  "exclude": ["node_modules", "dist", "**/*.test.ts"]
+  "include": ["src/**/*.ts"]
 }

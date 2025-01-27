@@ -35,6 +35,7 @@ export default class PriorityQueue<T> {
    * Gets the number of elements in the priority queue.
    *
    * @returns {number} The size of the priority queue.
+   * @public
    */
   get size() {
     return this.values.length
@@ -44,6 +45,7 @@ export default class PriorityQueue<T> {
    * Checks if the priority queue is empty.
    *
    * @returns {boolean} True if the priority queue is empty, false otherwise.
+   * @public
    */
   empty(): boolean {
     return this.size === 0
@@ -54,8 +56,9 @@ export default class PriorityQueue<T> {
    *
    * @returns {T} The top element of the priority queue.
    * @throws {Error} If the priority queue is empty.
+   * @public
    */
-  top(): T {
+  top(): T | undefined {
     if (this.empty()) {
       throw new Error("Queue is empty. Cannot perform peek operation.")
     }
@@ -67,6 +70,7 @@ export default class PriorityQueue<T> {
    * Adds a new element to the priority queue.
    *
    * @param {T} value - The element to add to the priority queue.
+   * @public
    */
   push(value: T): void {
     this.values.push(value)
@@ -79,8 +83,9 @@ export default class PriorityQueue<T> {
    *
    * @returns {T} The removed top element of the priority queue.
    * @throws {Error} If the priority queue is empty.
+   * @public
    */
-  pop(): T {
+  pop(): T | undefined {
     if (this.empty()) {
       throw new Error("Queue is empty. Cannot perform pop operation.")
     }
@@ -98,6 +103,7 @@ export default class PriorityQueue<T> {
 
   /**
    * Removes all elements from the priority queue.
+   * @public
    */
   clear(): void {
     this.values = []
@@ -107,6 +113,7 @@ export default class PriorityQueue<T> {
    * Converts the priority queue to an array.
    *
    * @returns {T[]} An array containing all elements of the priority queue.
+   * @public
    */
   toArray(): T[] {
     return [...this.values]
@@ -117,11 +124,17 @@ export default class PriorityQueue<T> {
    *
    * @param {number} index - The index to get the parent for.
    * @returns {[number, T]} A tuple containing the parent index and value.
+   * @throws {Error} If the index is out of bounds.
    */
-  private getParent(index: number): [number, T] {
-    const parentIndex = (index - 1) >>> 1
+  private getParent(index: number): [number, T] | undefined {
+    if (index <= 0) {
+      throw new Error("Index out of bounds. Cannot get parent of root element.")
+    }
 
-    return [parentIndex, this.values[parentIndex]]
+    const parentIndex = (index - 1) >>> 1
+    const parentValue = this.values[parentIndex] as T
+
+    return [parentIndex, parentValue]
   }
 
   /**
@@ -133,9 +146,9 @@ export default class PriorityQueue<T> {
     const value = this.values[index]
 
     while (index > 0) {
-      const [parentIndex, parentValue] = this.getParent(index)
+      const [parentIndex, parentValue] = this.getParent(index) as [number, T]
 
-      if (this.isGreater(parentValue, value)) {
+      if (this.isGreater(parentValue, value as T)) {
         break
       }
 
@@ -143,7 +156,7 @@ export default class PriorityQueue<T> {
       index = parentIndex
     }
 
-    this.values[index] = value
+    this.values[index] = value as T
   }
 
   /**
@@ -153,7 +166,7 @@ export default class PriorityQueue<T> {
    */
   private shiftDown(index: number): void {
     const length = this.size
-    const value = this.values[index]
+    const value = this.values[index] as T
 
     while (true) {
       const leftChildIndex = (index << 1) + 1
@@ -161,13 +174,13 @@ export default class PriorityQueue<T> {
 
       let swapIndex: number | null = null
 
-      if (leftChildIndex < length && this.isGreater(this.values[leftChildIndex], value)) {
+      if (leftChildIndex < length && this.isGreater(this.values[leftChildIndex] as T, value)) {
         swapIndex = leftChildIndex
       }
 
       if (
         rightChildIndex < length &&
-        this.isGreater(this.values[rightChildIndex], swapIndex ? this.values[swapIndex] : value)
+        this.isGreater(this.values[rightChildIndex] as T, swapIndex ? (this.values[swapIndex] as T) : value)
       ) {
         swapIndex = rightChildIndex
       }
@@ -176,7 +189,7 @@ export default class PriorityQueue<T> {
         break
       }
 
-      this.values[index] = this.values[swapIndex]
+      this.values[index] = this.values[swapIndex] as T
       index = swapIndex
     }
 
