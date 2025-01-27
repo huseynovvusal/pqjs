@@ -1,10 +1,11 @@
 <div align="center">
-    <picture style="max-width: 400px; width: 50%;">
+    <div style="max-width: 400px; width: 50%;">
+    <picture>
         <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/huseynovvusal/pqjs/refs/heads/main/assets/logo-dark.png">
         <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/huseynovvusal/pqjs/refs/heads/main/assets/logo-light.png">
-        <img alt="Pq.js" src="assets/logo-light.png" style="max-width: 400px; width: 50%;">
+        <img alt="Pq.js" src="assets/logo-light.png">
     </picture>
-    <br/>
+    </div>
     <br/>
     <p align="center">
         <a href="https://www.npmjs.com/package/pqjs">
