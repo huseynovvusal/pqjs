@@ -1,6 +1,6 @@
 {
   "name": "pqjs",
-  "version": "1.3.4",
+  "version": "1.3.6",
   "description": "⚡ A fast and lightweight priority queue implementation for JavaScript.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
