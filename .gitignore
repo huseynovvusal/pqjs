@@ -9,3 +9,9 @@ dist
 
 # Environment Variables
 .env
+
+# Python
+*.py
+
+# C++
+*.cpp

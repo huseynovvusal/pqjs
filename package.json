@@ -2,9 +2,13 @@
   "name": "pqjs",
   "version": "1.0.0",
   "description": "⚡ A fast and lightweight priority queue implementation for JavaScript.",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -13,10 +17,8 @@
   "keywords": [
     "pqjs",
     "algorithms",
-    "data",
-    "structures",
-    "priority",
-    "queue",
+    "data-structures",
+    "priority-queue",
     "heapq"
   ],
   "author": "Vusal Huseynov",
@@ -24,5 +26,13 @@
   "bugs": {
     "url": "https://github.com/huseynovvusal/pqjs/issues"
   },
-  "homepage": "https://github.com/huseynovvusal/pqjs#readme"
+  "homepage": "https://github.com/huseynovvusal/pqjs#readme",
+  "devDependencies": {
+    "@types/jest": "^29.5.14",
+    "@types/node": "^22.10.10",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3"
+  }
 }
