@@ -1,8 +1,26 @@
-<img src="assets/logo.png" alt="PqJS Logo" width="30%" />
+<div align="center">
+    <picture style="max-width: 400px; width: 50%;">
+        <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/huseynovvusal/pqjs/refs/heads/main/assets/logo-dark.png">
+        <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/huseynovvusal/pqjs/refs/heads/main/assets/logo-light.png">
+        <img alt="Pq.js" src="assets/logo-light.png" style="max-width: 400px; width: 50%;">
+    </picture>
+    <br/>
+    <br/>
+    <p align="center">
+        <a href="https://www.npmjs.com/package/pqjs">
+            <img src="https://img.shields.io/npm/v/pqjs.svg" alt="npm version">
+        </a>
+        <a href="https://github.com/huseynovvusal/pqjs/blob/main/LICENSE">
+            <img src="https://img.shields.io/npm/l/pqjs.svg" alt="license">
+        </a>
+    </p>
+    <p align="center">
+        An efficient and easy-to-use priority queue.
+    </p>
 
-# PqJS
+</div>
 
-**PqJS** provides a fast, straightforward priority queue to manage data based on priority. Ideal for sorting, task scheduling, or implementing priority-based logic in your app.
+**Pq.js** provides a fast, straightforward priority queue to manage data based on priority. Ideal for sorting, task scheduling, or implementing priority-based logic in your app.
 
 - ⚡ Simple and fast priority queue operations.
 - 🔽🔼 Supports both **Min-Heap** and **Max-Heap** configurations.
@@ -79,14 +97,16 @@ console.log(pq.toArray()) // []
 ### Using a Comparator for Min-Heap
 
 ```typescript
-const minHeapComparator = (a: number, b: number) => a - b
+const minHeapComparator = (a: number, b: number) => b - a
 const minHeap = new PriorityQueue<number>([], minHeapComparator)
 
 minHeap.push(10)
 minHeap.push(5)
 minHeap.push(20)
 
-console.log(minHeap.top()) // 5 for Min-Heap
+console.log(minHeap.pop()) // 5 for Min-Heap
+console.log(minHeap.pop()) // 10 for Min-Heap
+console.log(minHeap.pop()) // 20 for Min-Heap
 ```
 
 ## License
