@@ -16,5 +16,5 @@ dist
 # C++
 *.cpp
 
-# Development Files
-.vscode
+# Development
+/.vscode/
