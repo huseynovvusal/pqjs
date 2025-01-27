@@ -5,6 +5,7 @@
         <img alt="Pq.js" src="assets/logo-light.png" width="250">
     </picture>
     <br/>
+    <br/>
     <p align="center">
         <a href="https://www.npmjs.com/package/pqjs">
             <img src="https://img.shields.io/npm/v/pqjs.svg" alt="npm version">
