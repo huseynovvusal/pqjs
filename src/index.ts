@@ -1,1 +1,1 @@
-export { default, Comparator } from "./PriorityQueue.js"
+export * from "./PriorityQueue.js"

@@ -13,7 +13,7 @@ export type Comparator<T> = (a: T, b: T) => number
  *
  * @template T - The type of elements held in the priority queue.
  */
-export default class PriorityQueue<T> {
+export class PriorityQueue<T> {
   private values: T[] = []
   private isGreater: (a: T, b: T) => boolean
 
@@ -85,7 +85,7 @@ export default class PriorityQueue<T> {
    * @throws {Error} If the priority queue is empty.
    * @public
    */
-  pop(): T | undefined {
+  pop(): T {
     if (this.empty()) {
       throw new Error("Queue is empty. Cannot perform pop operation.")
     }
@@ -126,7 +126,7 @@ export default class PriorityQueue<T> {
    * @returns {[number, T]} A tuple containing the parent index and value.
    * @throws {Error} If the index is out of bounds.
    */
-  private getParent(index: number): [number, T] | undefined {
+  private getParent(index: number): [number, T] {
     if (index <= 0) {
       throw new Error("Index out of bounds. Cannot get parent of root element.")
     }

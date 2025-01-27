@@ -1,4 +1,4 @@
-import PriorityQueue, { Comparator } from "../src/PriorityQueue"
+import { PriorityQueue, Comparator } from "../src/PriorityQueue"
 
 describe("PriorityQueue", () => {
   describe("Constructor", () => {
