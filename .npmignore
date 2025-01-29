@@ -23,6 +23,8 @@ assets
 *.md
 src
 /.vscode/
+/.idea/
 *.config.js
 *.config.ts
-README.md
+tsconfig.json
+tsconfig.tsbuildinfo
